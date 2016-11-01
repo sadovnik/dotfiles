@@ -3,7 +3,7 @@
 " more info about leader http://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
 
 set nocompatible " with Vi
-filetype off " dont try to recognize filetype and don't trigger the FileType event
+" filetype off " dont try to recognize filetype and don't trigger the FileType event
 
 " let $PATH = $PATH . ':' . expand("~/.local/bink
 
@@ -47,8 +47,8 @@ Plugin 'jimenezrick/vimerl'
 Plugin 'wting/rust.vim'
 " Plugin 'cespare/vim-toml'
 " Plugin 'facebook/vim-flow'
-Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'shawncplus/phpcomplete.vim'
+" Plugin '2072/PHP-Indenting-for-VIm'
+" Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-ragtag'
@@ -247,6 +247,7 @@ map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
+nnoremap <silent> <bs> <C-w><Left>
 
 " Toggle paste mode
 " nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
