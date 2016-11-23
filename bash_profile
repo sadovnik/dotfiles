@@ -16,3 +16,10 @@ alias c="clear"
 alias gs="git status"
 eval "$(thefuck --alias jj)"
 eval "$(rbenv init -)"
+
+
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
