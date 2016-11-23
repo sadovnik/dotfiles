@@ -13,5 +13,6 @@ export LANG=en_US.UTF-8
 
 alias l="ls -la"
 alias c="clear"
+alias gs="git status"
 eval "$(thefuck --alias jj)"
 eval "$(rbenv init -)"
