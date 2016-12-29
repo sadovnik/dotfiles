@@ -1,108 +1,78 @@
-" Leader key is \ (ё) by default but few screens down in this conf it will be
-" set to , (б)
-" more info about leader http://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
+set nocompatible
+call plug#begin('~/.vim/plugged')
+Plug 'Shougo/vimproc.vim'
+" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+" Plug 'neomake/neomake'
+" Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'bling/vim-airline'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'mbbill/undotree'
+Plug 'ervandew/supertab'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go'
+Plug 'jimenezrick/vimerl'
+Plug 'wting/rust.vim'
+Plug 'joonty/vdebug'
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9000
+let g:vdebug_options["break_on_open"] = 0
 
-set nocompatible " with Vi
-" filetype off " dont try to recognize filetype and don't trigger the FileType event
+Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-ragtag'
+Plug 'zah/nimrod.vim'
+Plug 'rgrinberg/vim-ocaml'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
+Plug 'mattn/emmet-vim'
+Plug 'reedes/vim-lexical'
+Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+Plug 'Valloric/MatchTagAlways'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-git'
 
-" let $PATH = $PATH . ':' . expand("~/.local/bink
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-bundler'
 
-set rtp+=~/.vim/bundle/Vundle.vim " Include Vundle - the plugin manager for vim
-call vundle#begin()               " init it
-Plugin 'VundleVim/Vundle.vim'     " let it manage itself :)
+Plug 'tpope/vim-endwise'
+Plug 'Shougo/vimshell.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-leiningen'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-eastwood'
+Plug 'vim-scripts/paredit.vim'
+Plug 'wlangstroth/vim-racket'
+Plug 'stephpy/vim-yaml'
+Plug 'chrisbra/csv.vim'
+" Plug 'ekalinin/Dockerfile.vim'
+Plug 'terryma/vim-multiple-cursors'
 
-" Plugin 'nathanaelkane/vim-indent-guides' " a plugin for visually display ident
-                                           " levels
+call plug#end()
 
-Plugin 'Shougo/vimproc.vim'      " ? Some kind of improvement for vim's shell command execution
-Plugin 'scrooloose/syntastic'    " Shows syntax errors after save
-Plugin 'scrooloose/nerdtree'     " Filesystem explorer
-Plugin 'tpope/vim-sensible'      " A set of good vim defaults
-Plugin 'tpope/vim-surround'      " Helps to replace differen kind of surroundings. sc{[ to replace curly brackets with square
-Plugin 'tpope/vim-commentary'    " Comment shortcut. gcc to comment and gc to uncomment
-Plugin 'tpope/vim-repeat'        " Some improvement for default vim functionality
-Plugin 'tpope/vim-unimpaired'    " Adds some shortcuts for paired mappings like :set spell and :set nospell
-Plugin 'tpope/vim-fugitive'      " Git wrapper
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-dispatch'
-Plugin 'ctrlpvim/ctrlp.vim'      " Fuzzy search
-" Plugin 'altercation/vim-colors-solarized' " A colorsheme
-Plugin 'nanotech/jellybeans.vim' " and this too
-Plugin 'dyng/ctrlsf.vim'         " An alternative to ST's or Atom's CTrl-Shift-F
-Plugin 'bling/vim-airline' " This fancy colored status bar in the bottom
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular' " Line things up
-                           " I used :Tab /" for ligning this config
-Plugin 'othree/html5.vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'mbbill/undotree'
-" Plugin 'tmatilai/vim-monit'
-Plugin 'ervandew/supertab'
-" Plugin 'jpalardy/vim-slime'
-" Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
-Plugin 'jimenezrick/vimerl'
-Plugin 'wting/rust.vim'
-" Plugin 'cespare/vim-toml'
-" Plugin 'facebook/vim-flow'
-" Plugin '2072/PHP-Indenting-for-VIm'
-" Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'joonty/vdebug'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'tpope/vim-ragtag'
-Plugin 'zah/nimrod.vim'
-Plugin 'rgrinberg/vim-ocaml'
-
-" Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'neovimhaskell/haskell-vim'
-
-Plugin 'elzr/vim-json'
-" Plugin 'vim-scripts/JavaScript-Indent'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'moll/vim-node'
-Plugin 'mattn/emmet-vim'
-Plugin 'reedes/vim-lexical'
-
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-
-Plugin 'Valloric/MatchTagAlways'
-
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'plasticboy/vim-markdown'
-" Plugin 'JamshedVesuna/vim-markdown-preview'
-
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-git'
-
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'tpope/vim-rails'
-" Plugin 'tpope/vim-bundler'
-
-Plugin 'tpope/vim-endwise'
-Plugin 'Shougo/vimshell.vim'
-
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-leiningen'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-fireplace'
-Plugin 'venantius/vim-eastwood'
-
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'wlangstroth/vim-racket'
-
-Plugin 'stephpy/vim-yaml'
-
-Plugin 'chrisbra/csv.vim'
-" Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'terryma/vim-multiple-cursors'
-
-call vundle#end()
-filetype plugin indent on
+" filetype plugin indent on
 
 augroup lexical
   autocmd!
@@ -222,27 +192,29 @@ let g:buffergator_sort_regime = "mru"
 
 let g:vim_markdown_folding_disabled = 1
 
-let g:syntastic_haskell_checkers = ['']
+" let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+" let g:neomake_ruby_enabled_makers = ['rubocop']
+" let g:neomake_php_enabled_makers = ['phpcs']
+" let g:neomake_php_phpcs_args_standard = 'PSR2'
 
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_javascript_flow_exe = 'flow'
+" let g:syntastic_javascript_checkers = ['eslint', 'flow']
+" let g:syntastic_javascript_flow_exe = 'flow'
 
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_erlang_checkers = ['syntaxerl', 'escript']
+" let g:syntastic_haml_checkers = ['haml_lint']
+" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
-let g:syntastic_php_checkers=['phpcs', 'php']
-let g:syntastic_php_phpcs_exec='~/.composer/vendor/bin/phpcs'
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+" let g:syntastic_php_checkers=['phpcs', 'php']
+" let g:syntastic_php_phpcs_exec='~/.composer/vendor/bin/phpcs'
+" let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
-let g:syntastic_enable_racket_racket_checker = 0
+" let g:syntastic_enable_racket_racket_checker = 0
 
 " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 nmap <F8> :TagbarToggle<CR>
-nnoremap <F5> :UndotreeToggle<cr>
+" nnoremap <F5> :UndotreeToggle<cr>
 
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
@@ -298,14 +270,18 @@ au BufRead,BufNewFile {Vagrantfile,Gemfile,Capfile} set ft=ruby
 
 " autocmd FileType ruby compiler ruby
 
-" au FileType ruby setl sw=2 sts=2 et
+au FileType ruby setl sw=2 sts=2 et
 " au FileType javascript setl sw=2 sts=2 et
 " au FileType yaml setl sw=2 sts=2 et
 " autocmd Filetype html setlocal ts=2 sw=2
 autocmd Filetype php setlocal ts=4 sw=4 autoindent
-autocmd Filetype php setlocal ts=4 sw=4 autoindent
+" autocmd! BufWritePost * Neomake
 
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
 
+"Local Vimrc
+if filereadable("./.lnvimrc")
+    execute "source ./.lnvimrc"
+endif
