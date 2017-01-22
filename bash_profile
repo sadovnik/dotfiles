@@ -14,9 +14,11 @@ export LANG=en_US.UTF-8
 alias l="ls -la"
 alias c="clear"
 alias gs="git status"
+
+set -o vi
+
 eval "$(thefuck --alias jj)"
 eval "$(rbenv init -)"
-
 
 mkcdir ()
 {
