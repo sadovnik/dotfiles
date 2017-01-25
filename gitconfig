@@ -1,0 +1,16 @@
+[user]
+    name = Cyril Sadovnik
+    email = cyril.sadovnik@gmail.com
+[credential]
+    helper = osxkeychain
+[diff]
+    compactionHeuristic = true
+    algorithm = patience
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore
+[alias]
+    s = status
+    r = reset
+    d = diff
+    ap = add -p
