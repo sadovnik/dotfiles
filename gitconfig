@@ -1,8 +1,8 @@
 [user]
     name = Cyril Sadovnik
     email = cyril.sadovnik@gmail.com
-[credential]
-    helper = osxkeychain
+; [credential]
+;     helper = osxkeychain
 [diff]
     compactionHeuristic = true
     algorithm = patience
