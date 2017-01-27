@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - file: src={{ item }} dest=~/.{{ item | basename }} state=link
+      with_fileglob:
+        - files/*
