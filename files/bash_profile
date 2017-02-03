@@ -15,6 +15,9 @@ alias l="ls -la"
 alias c="clear"
 alias gs="git status"
 
+# linux-specific
+alias copy="xclip -sel clip"
+
 set -o vi
 
 eval "$(thefuck --alias jj)"
