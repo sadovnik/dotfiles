@@ -258,12 +258,12 @@ noremap ,hl :set hlsearch! hlsearch?<CR>
 cmap w!! %!sudo tee > /dev/null %
 
 " Allow to copy/paste between VIM instances
-" "copy the current visual selection to ~/.vbuf
-vmap <Leader>y :w! ~/.vbuf<CR>
+" "copy the current visual selection to ~/.vim-buffer
+vmap <Leader>y :w! ~/.vim-buffer<CR>
 " "copy the current line to the buffer file if no visual selection
-nmap <Leader>y :.w! ~/.vbuf<CR>
+nmap <Leader>y :.w! ~/.vim-buffer<CR>
 " "paste the contents of the buffer file
-nmap <Leader>p :r ~/.vbuf<CR>
+nmap <Leader>p :r ~/.vim-buffer<CR>
 
 au BufRead,BufNewFile {Vagrantfile,Gemfile,Capfile} set ft=ruby
 " au BufRead,BufNewFile *.phtml set ft=php
