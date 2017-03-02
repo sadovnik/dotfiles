@@ -38,3 +38,8 @@ tag-ruby ()
 {
     ctags -R . `bundle show --paths`
 }
+
+weather ()
+{
+    curl wttr.in
+}
