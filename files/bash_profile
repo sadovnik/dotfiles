@@ -28,3 +28,13 @@ mkcdir ()
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
+
+tag ()
+{
+    ctags -R .
+}
+
+tag-ruby ()
+{
+    ctags -R . `bundle show --paths`
+}
