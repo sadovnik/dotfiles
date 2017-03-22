@@ -69,6 +69,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'chrisbra/csv.vim'
 " Plug 'ekalinin/Dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -222,6 +223,9 @@ map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 nnoremap <silent> <bs> <C-w><Left>
+
+" Vim-easymotion
+map <Leader>f <Plug>(easymotion-prefix)
 
 " Toggle paste mode
 " nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
