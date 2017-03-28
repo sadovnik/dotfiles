@@ -13,6 +13,7 @@
     s = status
     r = reset
     d = diff
+    ds = diff --staged
     ap = add -p
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|dev' | xargs -n 1 git branch -d"
     co = checkout
