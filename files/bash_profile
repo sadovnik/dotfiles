@@ -10,6 +10,9 @@ GIT_PS1_SHOWCOLORHINTS=true
 export PS1='\[`tput setaf 325`\]$PWD\[`tput sgr0`\]$(__git_ps1 " (%s)") $ '
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export GOPATH=~/go
+export GOBIN=$GOPATH/bin
+export PATH=$GOPATH:$GOBIN:$PATH
 
 alias l="ls -la"
 alias c="clear"
