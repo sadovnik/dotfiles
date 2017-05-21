@@ -70,6 +70,7 @@ Plug 'chrisbra/csv.vim'
 " Plug 'ekalinin/Dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
