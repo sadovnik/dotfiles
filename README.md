@@ -11,6 +11,6 @@ This is my dotfiles setup.
 
    `make link`
 
-## Credentials
+## Credits
 - Kirill Mokevnin [@mokevnin](https://github.com/mokevnin)
 - Vasily Kolesnikov [@v-kolesnikov](https://github.com/v-kolesnikov)
