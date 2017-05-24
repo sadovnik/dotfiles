@@ -1,18 +1,42 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-Plug 'Shougo/vimproc.vim'
-" Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
-" Plug 'neomake/neomake'
-" Plug 'tpope/vim-sensible'
+
+" Text manipulation
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
+
+" Git
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+
+" Navigation
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Ruby
+Plug 'thoughtbot/vim-rspec'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+
+" Clojure
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-leiningen'
+
+" Javascript
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
+
+" Text formats
+Plug 'tpope/vim-haml'
+Plug 'elzr/vim-json'
+
+" These are still uncategorized
 Plug 'nanotech/jellybeans.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'bling/vim-airline'
@@ -24,42 +48,21 @@ Plug 'digitaltoad/vim-jade'
 Plug 'mbbill/undotree'
 Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go'
 Plug 'jimenezrick/vimerl'
-Plug 'wting/rust.vim'
 Plug 'joonty/vdebug'
-let g:vdebug_options = {}
-let g:vdebug_options["port"] = 9000
-let g:vdebug_options["break_on_open"] = 0
-
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-ragtag'
 Plug 'zah/nimrod.vim'
 Plug 'rgrinberg/vim-ocaml'
 Plug 'eagletmt/ghcmod-vim'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'moll/vim-node'
 Plug 'mattn/emmet-vim'
 Plug 'reedes/vim-lexical'
 Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
 Plug 'Valloric/MatchTagAlways'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-git'
-
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-bundler'
-
 Plug 'tpope/vim-endwise'
 Plug 'Shougo/vimshell.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-leiningen'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-eastwood'
@@ -67,15 +70,25 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'wlangstroth/vim-racket'
 Plug 'stephpy/vim-yaml'
 Plug 'chrisbra/csv.vim'
-" Plug 'ekalinin/Dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'mileszs/ack.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'scrooloose/nerdtree'
+" Plug 'ekalinin/Dockerfile.vim'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'xolox/vim-easytags'
+" Plug 'scrooloose/syntastic'
+
 
 call plug#end()
 
-" filetype plugin indent on
+" Vdebug
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9000
+let g:vdebug_options["break_on_open"] = 0
 
+" filetype plugin indent on
 augroup lexical
   autocmd!
   autocmd FileType markdown,mkd call lexical#init()
@@ -282,6 +295,11 @@ au FileType javascript setl sw=2 sts=2 et
 " autocmd Filetype html setlocal ts=2 sw=2
 autocmd Filetype php setlocal ts=4 sw=4 autoindent
 " autocmd! BufWritePost * Neomake
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
