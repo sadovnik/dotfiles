@@ -47,3 +47,18 @@ weather ()
 {
     curl wttr.in
 }
+
+psearch ()
+{
+    ps -ax | grep -i "$1"
+}
+
+gfind ()
+{
+    grep -RF "$1" "$2"
+}
+
+backup ()
+{
+    tar -czvf "$1.tar.gz" "$1"
+}
