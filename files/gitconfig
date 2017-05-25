@@ -19,3 +19,4 @@
     ap = add -p
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|dev' | xargs -n 1 git branch -d"
     co = checkout
+    cm = commit -v
