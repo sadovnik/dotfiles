@@ -9,6 +9,8 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
+[commit]
+    template = ~/.gitmessage
 [alias]
     s = status
     r = reset
