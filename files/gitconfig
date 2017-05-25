@@ -1,16 +1,24 @@
 [user]
     name = Cyril Sadovnik
     email = cyril.sadovnik@gmail.com
+
 ; [credential]
 ;     helper = osxkeychain
+
 [diff]
     compactionHeuristic = true
     algorithm = patience
+
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
+
 [commit]
     template = ~/.gitmessage
+
+[push]
+    default = current
+
 [alias]
     s = status
     r = reset
@@ -19,4 +27,5 @@
     ap = add -p
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|dev' | xargs -n 1 git branch -d"
     co = checkout
+    pu = push -u
     cm = commit -v
