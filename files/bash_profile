@@ -14,9 +14,12 @@ export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH:$GOBIN:$PATH
 
+# Aliases
 alias l="ls -la"
 alias c="clear"
-alias gs="git status"
+alias dotfiles="cd ~/dotfiles && nvim"
+alias rc="bundler exec rails c"
+
 alias be="bundle exec"
 
 # linux-specific
