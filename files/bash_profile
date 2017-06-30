@@ -65,3 +65,17 @@ backup ()
 {
     tar -czvf "$1.tar.gz" "$1"
 }
+
+prettify_json ()
+{
+    if [[ -z $1 ]]; then
+        ruby -e "require 'json'; puts JSON.pretty_generate(JSON.parse(STDIN.read))"
+    else
+        ruby -e "require 'json'; IO.write('$1.pretty', JSON.pretty_generate(JSON.parse(IO.read('$1'))))"
+    fi
+}
+
+share ()
+{
+    gdrive upload $1 --share
+}
