@@ -14,7 +14,7 @@
     excludesfile = ~/.gitignore
 
 [commit]
-    template = ~/.gitmessage
+    template = ~/.git_commit_message_template.txt
 
 [push]
     default = current
@@ -29,3 +29,4 @@
     co = checkout
     pu = push -u
     cm = commit -v
+    m = checkout master

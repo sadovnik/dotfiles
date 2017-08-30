@@ -1,7 +1,7 @@
 if [ -d /usr/local/etc/bash_completion.d ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     source /usr/local/etc/bash_completion.d/git-completion.bash
-    source /usr/local/etc/bash_completion.d/git-flow-completion.bash
+#   source /usr/local/etc/bash_completion.d/git-flow-completion.bash
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -19,15 +19,18 @@ alias l="ls -la"
 alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
 alias rc="bundler exec rails c"
+alias n="nvim"
 
 alias be="bundle exec"
+
+alias push="git push && hub pull-request"
 
 # linux-specific
 alias copy="xclip -sel clip"
 
 set -o vi
 
-eval "$(thefuck --alias jj)"
+# eval "$(thefuck --alias jj)"
 eval "$(rbenv init -)"
 
 mkcdir ()
@@ -78,4 +81,9 @@ prettify_json ()
 share ()
 {
     gdrive upload $1 --share
+}
+
+recognize ()
+{
+    bundler exec rails r "puts; puts; puts Rails.application.routes.recognize_path('$1')"
 }
