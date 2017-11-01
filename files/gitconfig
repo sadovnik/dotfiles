@@ -30,3 +30,4 @@
     pu = push -u
     cm = commit -v
     m = checkout master
+    b = branch
