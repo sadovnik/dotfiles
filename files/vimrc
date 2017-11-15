@@ -36,6 +36,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
 Plug 'p0deje/vim-ruby-interpolation'
+Plug 'slim-template/vim-slim'
 
 " Clojure
 Plug 'guns/vim-clojure-static'
