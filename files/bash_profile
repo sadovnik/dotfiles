@@ -18,6 +18,7 @@ export PATH=$GOPATH:$GOBIN:$PATH
 alias l="ls -la"
 alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
+alias lol="open ~/.lolcommits/"
 alias rc="bundler exec rails c"
 alias n="nvim"
 alias nn="nvim -S" # start nvim with last session
