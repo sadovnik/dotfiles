@@ -20,6 +20,7 @@ alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
 alias rc="bundler exec rails c"
 alias n="nvim"
+alias nn="nvim -S" # start nvim with last session
 
 alias be="bundle exec"
 

@@ -115,9 +115,6 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
-" tpope/obsession
-autocmd VimEnter * Obsess " start to record session on vim startup
-
 " Useful for non-rails apps
 let test#ruby#rspec#options = '--require ./spec/spec_helper.rb'
 
