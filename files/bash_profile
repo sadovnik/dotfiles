@@ -1,40 +1,37 @@
+# Bash enhancements
 if [ -d /usr/local/etc/bash_completion.d ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     source /usr/local/etc/bash_completion.d/git-completion.bash
-#   source /usr/local/etc/bash_completion.d/git-flow-completion.bash
 fi
 
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWCOLORHINTS=true
+eval "$(rbenv init -)"
 
+# Settings
+set -o vi # vi mode
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWCOLORHINTS=true
 export PS1='\[`tput setaf 325`\]$PWD\[`tput sgr0`\]$(__git_ps1 " (%s)") $ '
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Golang
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH:$GOBIN:$PATH
 
 # Aliases
+alias g="git"
+alias push="git push && hub pull-request"
 alias l="ls -la"
 alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
-alias lol="open ~/.lolcommits/"
-alias rc="bundler exec rails c"
 alias n="nvim"
 alias nn="nvim -S" # start nvim with last session
-
+alias rc="bundler exec rails console"
 alias be="bundle exec"
 
-alias push="git push && hub pull-request"
-
-# linux-specific
-alias copy="xclip -sel clip"
-
-set -o vi
-
-# eval "$(thefuck --alias jj)"
-eval "$(rbenv init -)"
-
+# Functions
 mkcdir ()
 {
     mkdir -p -- "$1" &&
