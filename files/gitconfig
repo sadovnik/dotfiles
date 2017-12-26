@@ -28,6 +28,7 @@
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|dev' | xargs -n 1 git branch -d"
     co = checkout
     pu = push -u
+    pf = push --force
     cm = commit -v
     m = checkout master
     b = branch
