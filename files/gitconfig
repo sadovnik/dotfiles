@@ -30,5 +30,6 @@
     pu = push -u
     pf = push --force
     cm = commit -v
+    cma = commit -v --amend
     m = checkout master
     b = branch
