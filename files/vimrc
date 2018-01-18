@@ -7,9 +7,16 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-dispatch'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-endwise' " Helps to end some code structures automatically after opening
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-dispatch'
+
+" Appearance
+Plug 'nanotech/jellybeans.vim' " Current theme
+Plug 'bling/vim-airline'
+Plug 'Valloric/MatchTagAlways'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Testing
 Plug 'janko-m/vim-test'
@@ -23,11 +30,13 @@ Plug 'tpope/vim-fugitive'
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'majutsushi/tagbar'
 " Plug 'jeetsukumaran/vim-buffergator'
+" Plug 'junegunn/goyo.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -37,10 +46,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'p0deje/vim-ruby-interpolation'
 Plug 'slim-template/vim-slim'
 
-" Clojure
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-leiningen'
-
 " Javascript
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -49,50 +54,37 @@ Plug 'moll/vim-node'
 " Text formats
 Plug 'tpope/vim-haml'
 Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'stephpy/vim-yaml'
+Plug 'chrisbra/csv.vim'
+Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'rhysd/vim-clang-format'
 
 " Workflow
 Plug 'tpope/vim-obsession'
 
-" These are still uncategorized
-Plug 'nanotech/jellybeans.vim'
-Plug 'dyng/ctrlsf.vim'
-Plug 'bling/vim-airline'
-Plug 'majutsushi/tagbar'
-Plug 'godlygeek/tabular'
-Plug 'othree/html5.vim'
-Plug 'digitaltoad/vim-jade'
-Plug 'mbbill/undotree'
-Plug 'ervandew/supertab'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jimenezrick/vimerl'
-Plug 'joonty/vdebug'
-Plug 'rhysd/vim-clang-format'
-Plug 'tpope/vim-ragtag'
-Plug 'zah/nimrod.vim'
-Plug 'rgrinberg/vim-ocaml'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'mattn/emmet-vim'
-Plug 'reedes/vim-lexical'
-Plug 'xolox/vim-misc'
-Plug 'Valloric/MatchTagAlways'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-endwise'
-Plug 'Shougo/vimshell.vim'
-Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-eastwood'
-Plug 'vim-scripts/paredit.vim'
-Plug 'wlangstroth/vim-racket'
-Plug 'stephpy/vim-yaml'
-Plug 'chrisbra/csv.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'Shougo/vimproc.vim'
+" Temporary disabled
+" Plug 'mbbill/undotree'
+" Plug 'ervandew/supertab'
+" Plug 'joonty/vdebug'
+" Plug 'tpope/vim-ragtag'
+" Plug 'reedes/vim-lexical'
+" Plug 'xolox/vim-misc'
+
+" Not sure about these
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'godlygeek/tabular'
+" Plug 'Shougo/vimshell.vim'
+" Plug 'tpope/vim-classpath'
+" Plug 'vim-scripts/paredit.vim'
+" Plug 'wlangstroth/vim-racket'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'Shougo/vimproc.vim'
 " Plug 'ekalinin/Dockerfile.vim'
 " Plug 'neovimhaskell/haskell-vim'
 " Plug 'xolox/vim-easytags'
 " Plug 'scrooloose/syntastic'
-
 
 call plug#end()
 
@@ -101,9 +93,6 @@ let mapleader=','
 " ruby shortcuts
 nmap <leader>r :T ruby %<cr>
 nmap <leader>b orequire 'pry-byebug'; binding.pry<ESC>
-
-" junegunn/goyo.vim
-" nnoremap <leader>g :Goyo<cr>
 
 " janko-m/vim-test
 " let test#strategy = 'neoterm'
@@ -120,22 +109,11 @@ let test#ruby#rspec#options = '--require ./spec/spec_helper.rb'
 " neovim's terminal mode escape
 :tnoremap <Esc> <C-\><C-n>
 
-" nmap <silent> <leader>rt :TestSuite<CR>
-" nmap <silent> <leader>rf :TestFile<CR>
-" nmap <silent> <leader>rn :TestNearest<CR>
-" nmap <silent> <leader>rr :TestLast<CR>
-" nmap <silent> <leader>g :TestVisit<CR>
-
-" thoughtbot/vim-rspec
-" map <leader>t :call RunCurrentSpecFile()<CR>
-" map <leader>s :call RunNearestSpec()<CR>
-" map <leader>l :call RunLastSpec()<CR>
-" map <leader>a :call RunAllSpecs()<CR>
-
 " kassio/neoterm
 let g:neoterm_automap_keys = ',tt'
 let g:neoterm_use_relative_path = 1
 let g:neoterm_shell = 'bash -login'
+
 
 nnoremap <silent> ,tc :call neoterm#kill()<cr>
 nnoremap <silent> ,th :call neoterm#close()<cr>
@@ -143,11 +121,6 @@ nnoremap <silent> ,tl :call neoterm#clear()<cr>
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSend<cr>
 vnoremap <silent> <f9> :TREPLSend<cr>
-
-" Vdebug
-let g:vdebug_options = {}
-let g:vdebug_options['port'] = 9000
-let g:vdebug_options['break_on_open'] = 0
 
 " filetype plugin indent on
 augroup lexical
@@ -165,50 +138,34 @@ set backspace=eol,start,indent
 
 " enhanced command completion
 set wildmenu
-
 set visualbell
 
 if has('mouse')
   set mouse=a
 endif
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
 set cursorline
 set hidden
 set nofoldenable
-"set modelines=0
-"set clipboard=unnamed
-"set synmaxcol=128
-"set ttyscroll=10
-"set encoding=utf-8
 set nowrap
 set number
 set hlsearch
 set ignorecase
 set smartcase
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
 set noswapfile
 
 set autoindent
-" set softtabstop=4
 set expandtab
-" set noexpandtab
 set softtabstop=2
 set shiftwidth=4
-" set smarttab
 
-" set background=dark
 set t_Co=256
 colorscheme jellybeans
 
-" ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
-" Only works all the time.
 if has('persistent_undo')
   silent !mkdir ~/.vim/backups > /dev/null 2>&1
   set undodir=~/.vim/backups
@@ -219,76 +176,18 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_aggregate_errors = 1
-
-let g:syntastic_check_on_wq = 0
-
 let g:jsx_ext_required = 0
 
-" let g:slime_target = "tmux"
-
 let g:vim_json_syntax_conceal = 0
-
-let g:lexical#spelllang = ['en_us', 'ru_ru']
-
-" let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" if !exists('g:neocomplete#keyword_patterns')
-" 	let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 let g:easytags_async = 1
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType ruby setlocal omnifunc=rubycomplete#CompleteTags
-" autocmd BufWritePost *.hs call s:check_and_lint()
-" autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-
-" let g:buffergator_viewport_split_policy = "B"
-" let g:buffergator_sort_regime = "mru"
-
 let g:vim_markdown_folding_disabled = 1
 
-" let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
-" let g:neomake_ruby_enabled_makers = ['rubocop']
-" let g:neomake_php_enabled_makers = ['phpcs']
-" let g:neomake_php_phpcs_args_standard = 'PSR2'
-
-" let g:syntastic_javascript_checkers = ['eslint', 'flow']
-" let g:syntastic_javascript_flow_exe = 'flow'
-
-" let g:syntastic_haml_checkers = ['haml_lint']
-" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-
-" let g:syntastic_php_checkers=['phpcs', 'php']
-" let g:syntastic_php_phpcs_exec='~/.composer/vendor/bin/phpcs'
-" let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
-
-" let g:syntastic_enable_racket_racket_checker = 0
-
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 nmap <F8> :TagbarToggle<CR>
-" nnoremap <F5> :UndotreeToggle<cr>
 
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
@@ -299,13 +198,6 @@ nnoremap <silent> <bs> <C-w><Left>
 
 " Vim-easymotion
 map <leader>f <Plug>(easymotion-prefix)
-
-" Toggle paste mode
-" nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
-" imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
-"
-" NOTE!
-"     I disabled it for in favor of :yo command provided by vim-unimpaired
 
 " format the entire file
 nnoremap <leader>fef :normal! gg=G``<CR>
@@ -325,7 +217,8 @@ nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 let NERDTreeIgnore = ['\.pyc$', '\.retry$']
 
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" ctrlpvim/ctrlp.vim
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 nmap <silent> // :nohlsearch<CR>
 noremap ,hl :set hlsearch! hlsearch?<CR>
@@ -343,17 +236,12 @@ nmap <leader>y :.w! ~/.vim-buffer<CR>
 nmap <leader>p :r ~/.vim-buffer<CR>
 
 au BufRead,BufNewFile {Vagrantfile,Gemfile,Capfile} set ft=ruby
-" au BufRead,BufNewFile *.phtml set ft=php
-
-" autocmd FileType ruby compiler ruby
 
 au FileType ruby setl sw=2 sts=2 et
 au FileType erb setl sw=2 sts=2 et
 au FileType javascript setl sw=2 sts=2 et
 au FileType yaml setl sw=2 sts=2 et
-" autocmd Filetype html setlocal ts=2 sw=2
 autocmd Filetype php setlocal ts=4 sw=4 autoindent
-" autocmd! BufWritePost * Neomake
 
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
@@ -361,5 +249,5 @@ endif
 
 "Local Vimrc
 if filereadable("./.lnvimrc")
-    execute "source ./.lnvimrc"
+  execute "source ./.lnvimrc"
 endif
