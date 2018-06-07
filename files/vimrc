@@ -33,7 +33,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'majutsushi/tagbar'
 " Plug 'jeetsukumaran/vim-buffergator'
 " Plug 'junegunn/goyo.vim'
@@ -45,6 +44,7 @@ Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
 Plug 'p0deje/vim-ruby-interpolation'
 Plug 'slim-template/vim-slim'
+" Plug 'ngmy/vim-rubocop' " Don't work
 
 " Javascript
 Plug 'mxw/vim-jsx'
@@ -79,11 +79,9 @@ Plug 'tpope/vim-obsession'
 " Plug 'tpope/vim-classpath'
 " Plug 'vim-scripts/paredit.vim'
 " Plug 'wlangstroth/vim-racket'
-" Plug 'easymotion/vim-easymotion'
 " Plug 'Shougo/vimproc.vim'
 " Plug 'ekalinin/Dockerfile.vim'
 " Plug 'neovimhaskell/haskell-vim'
-" Plug 'xolox/vim-easytags'
 " Plug 'scrooloose/syntastic'
 
 call plug#end()
@@ -106,14 +104,13 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Useful for non-rails apps
 let test#ruby#rspec#options = '--require ./spec/spec_helper.rb'
 
-" neovim's terminal mode escape
+" Neovim's terminal mode escape
 :tnoremap <Esc> <C-\><C-n>
 
 " kassio/neoterm
 let g:neoterm_automap_keys = ',tt'
 let g:neoterm_use_relative_path = 1
 let g:neoterm_shell = 'bash -login'
-
 
 nnoremap <silent> ,tc :call neoterm#kill()<cr>
 nnoremap <silent> ,th :call neoterm#close()<cr>
@@ -136,7 +133,7 @@ set history=500
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 
-" enhanced command completion
+" Enhanced command completion
 set wildmenu
 set visualbell
 
@@ -165,22 +162,20 @@ set shiftwidth=4
 set t_Co=256
 colorscheme jellybeans
 
-" Keep undo history across sessions, by storing in file.
+" Share undo history across sessions by storing it in a file.
 if has('persistent_undo')
   silent !mkdir ~/.vim/backups > /dev/null 2>&1
   set undodir=~/.vim/backups
   set undofile
 endif
 
+" ?
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:jsx_ext_required = 0
-
+" Do not hide double quotes when viewing json files (https://github.com/elzr/vim-json#specific-customizations)
 let g:vim_json_syntax_conceal = 0
-
-let g:easytags_async = 1
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -195,9 +190,6 @@ map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 nnoremap <silent> <bs> <C-w><Left>
-
-" Vim-easymotion
-map <leader>f <Plug>(easymotion-prefix)
 
 " format the entire file
 nnoremap <leader>fef :normal! gg=G``<CR>
@@ -247,7 +239,7 @@ if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
 
-"Local Vimrc
+" Local Vimrc
 if filereadable("./.lnvimrc")
   execute "source ./.lnvimrc"
 endif
