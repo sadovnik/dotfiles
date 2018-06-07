@@ -1,12 +1,8 @@
-# Bash enhancements
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    source /usr/local/etc/bash_completion.d/git-prompt.sh
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
+# Bash completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 eval "$(rbenv init -)"
 
-# Settings
 set -o vi # vi mode
 
 export GIT_PS1_SHOWDIRTYSTATE=true
