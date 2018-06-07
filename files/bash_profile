@@ -26,6 +26,8 @@ alias n="nvim"
 alias nn="nvim -S" # start nvim with last session
 alias rc="bundler exec rails console"
 alias be="bundle exec"
+alias remigrate="bundler exec rake db:drop db:create db:migrate"
+alias check="be rubocop -a && be rspec"
 
 # Functions
 mkcdir ()
