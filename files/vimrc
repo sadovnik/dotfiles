@@ -169,6 +169,19 @@ if has('persistent_undo')
   set undofile
 endif
 
+" Ack
+
+" Set silver searcher (ag) as Ack's backend
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Do not jump on first result
+cnoreabbrev Ack Ack!
+
+" Set keyboard shortcut
+nnoremap <Leader>a :Ack!<Space>
+
 " ?
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
