@@ -27,6 +27,7 @@ Plug 'kassio/neoterm'
 " Git & Github
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
