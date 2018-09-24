@@ -19,6 +19,7 @@ export PATH=$GOPATH:$GOBIN:$PATH
 # Aliases
 alias g="git"
 alias push="git push && hub pull-request"
+alias pfush="git push --force && hub pull-request"
 alias l="ls -la"
 alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
