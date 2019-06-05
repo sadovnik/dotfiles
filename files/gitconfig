@@ -1,6 +1,6 @@
 [user]
-    name = Cyril Sadovnik
-    email = cyril.sadovnik@gmail.com
+	name = Cyril Sadovnik
+	email = cyril.sadovnik@gmail.com
 
 ; [credential]
 ;     helper = osxkeychain
@@ -33,3 +33,9 @@
     cma = commit -v --amend
     m = checkout master
     b = branch
+    l = log
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

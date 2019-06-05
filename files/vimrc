@@ -11,6 +11,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-endwise' " Helps to end some code structures automatically after opening
 " Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-dispatch'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Appearance
 Plug 'nanotech/jellybeans.vim' " Current theme
@@ -35,6 +43,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'majutsushi/tagbar'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 " Plug 'jeetsukumaran/vim-buffergator'
 " Plug 'junegunn/goyo.vim'
 
@@ -64,6 +74,8 @@ Plug 'rhysd/vim-clang-format'
 
 " Workflow
 Plug 'tpope/vim-obsession'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 
 " Temporary disabled
 " Plug 'mbbill/undotree'
@@ -103,7 +115,7 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 " Useful for non-rails apps
-let test#ruby#rspec#options = '--require ./spec/spec_helper.rb'
+let test#ruby#rspec#options = '--require ./spec/spec_helper.rb --format documentation'
 
 " Neovim's terminal mode escape
 :tnoremap <Esc> <C-\><C-n>
@@ -180,6 +192,9 @@ endif
 " Do not jump on first result
 cnoreabbrev Ack Ack!
 
+" :CtrlSF --> :S
+command CtrlSF S
+
 " Set keyboard shortcut
 nnoremap <Leader>a :Ack!<Space>
 
@@ -247,6 +262,7 @@ au FileType ruby setl sw=2 sts=2 et
 au FileType erb setl sw=2 sts=2 et
 au FileType javascript setl sw=2 sts=2 et
 au FileType yaml setl sw=2 sts=2 et
+au FileType put setl sw=2 sts=2 et
 autocmd Filetype php setlocal ts=4 sw=4 autoindent
 
 if filereadable(expand("~/.vimrc.after"))

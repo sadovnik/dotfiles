@@ -2,6 +2,8 @@
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+eval "$($HOME/.jd/bin/jd init -)"
 
 set -o vi # vi mode
 
@@ -14,12 +16,15 @@ export LANG=en_US.UTF-8
 # Golang
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOPATH:$GOBIN:$PATH
+export PATH=$GOPATH:$GOBIN:$PATH # add GOBIN and GOPATH
+export PATH=~/bin:$PATH # add ~/bin
 
 # Aliases
 alias g="git"
-alias push="git push && hub pull-request"
+alias push="(test -e Gemfile && bundler exec rubocop); git push && hub pull-request"
 alias pfush="git push --force && hub pull-request"
+alias pr="hub pull-request"
+alias nc="git diff --name-only | uniq | xargs nvim"
 alias l="ls -la"
 alias c="clear"
 alias dotfiles="cd ~/dotfiles && nvim"
@@ -27,8 +32,17 @@ alias n="nvim"
 alias nn="nvim -S" # start nvim with last session
 alias rc="bundler exec rails console"
 alias be="bundle exec"
+alias migrate="bundler exec rake db:migrate && script/annotate"
 alias remigrate="bundler exec rake db:drop db:create db:migrate"
 alias check="be rubocop -a && be rspec"
+alias readme="bat README.md"
+
+open_gem ()
+{
+    "nvim `gem which $1`"
+}
+
+alias gr="cd ~/bureau/arc-reactor"
 
 # Functions
 mkcdir ()
@@ -85,3 +99,6 @@ recognize ()
 {
     bundler exec rails r "puts; puts; puts Rails.application.routes.recognize_path('$1')"
 }
+
+# PostgreSQL
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
